@@ -7,12 +7,12 @@ Kafka는 요새 개발자라면 모두가 한 번쯤 들어봤을 정도로 많�
 
 ## 목차
 
-- Kafka 란?
-- Kafka 등장 배경
-- Kafka 개념 및 구성요소
-- 정리
+1. Kafka란 무엇인가?
+2. Kafka 등장 배경
+3. Kafka 개념 및 구성요소
+4. 정리
 
-## 카프카란 무엇인가?
+## 1. 카프카(Kafka)란 무엇인가?
 
 빅데이터 플랫폼뿐만 아니라 MSA(Microservice Architecture) 구조의 백엔드 아키텍처에서도 중요한 역할을 수행하고 있는 아파치 카프카.
 
@@ -20,7 +20,7 @@ Kafka는 요새 개발자라면 모두가 한 번쯤 들어봤을 정도로 많�
 
 https://kafka.apache.org/documentation/
 
-## Apache Kafka 정의 소개
+### Apache Kafka 정의 소개
 
 카프카는 **분산** **이벤트 스트리밍** 플랫폼입니다.
 
@@ -44,7 +44,7 @@ https://kafka.apache.org/documentation/
 > *Event streaming is the practice of capturing data in real-time from event sources like databases, sensors, mobile devices, cloud services, and software applications in the form of streams of events; storing these event streams durably for later retrieval; manipulating, processing, and reacting to the event streams in real-time as well as retrospectively; and routing the event streams to different destination technologies as needed*
 >
 
-## Kafka 등장 배경
+## 2. Kafka 등장 배경
 
 https://www.linkedin.com/pulse/kafkas-origin-story-linkedin-tanvir-ahmed/
 
@@ -52,14 +52,14 @@ Kafka는 2010년경, LinkedIn 웹사이트와 인프라에서 발생하는 대�
 
 LinkedIn은 이런 실시간 애플리케이션용 데이터 유입을 해결할 솔루션으로 Kafka를 개발했고, 현재는 오픈소스로 제공하고 있습니다.
 
-## 왜 Kafka를 쓸까?
+### 왜 Kafka를 쓸까?
 
 https://www.confluent.io/what-is-apache-kafka/
 https://www.yes24.com/product/goods/99122569
 
 카프카는 현재 포춘 100대 기업 중 80% 이상이 활용하고 있습니다. 국내에서도 배민, 카카오 등의 서비스 기업들이 카프카를 핵심 인프라로 사용하고 있는데요. 카프카는 어떻게 이러한 인기를 누리게 되었을까요?
 
-## MSA가 불러온 Kafka 붐
+### MSA가 불러온 Kafka 붐
 
 글로벌 IT 기업의 사용자 규모가 폭발적으로 늘어나자 기업들은 서비스 단위의 독립적인 CI/CD, 장애 격리, Scale Out을 위해 기존 시스템을 모놀리식(Monolithic)에서 MSA(Microservices Architechture)로 전환하기 시작했습니다.
 
@@ -84,7 +84,7 @@ https://martinfowler.com/articles/microservices.html
 
 이제 본격적으로 Kafka의 개념과 구성 요소를 알아볼까요?
 
-## Kafka 개념 및 구성 요소
+## 3. Kafka 개념 및 구성 요소
 
 카프카 시스템을 이해하기 위해서는 먼저 아래의 카프카 구성 요소를 이해해야 합니다. 원할한 이해를 위해 연관된 개념을 묶어서 소개하겠습니다.
 
@@ -240,7 +240,7 @@ Producer와 Consumer가 데이터를 전송/요청하는 대상이자, 카프카
 또한 파티션마다 여러 브로커에 리더와 팔로워 역할이 균형 있게 분배되면서 클러스터 전체의 부하가 자연스럽게 분산되고, 이는 Kafka가 **고가용성과 확장성**을 동시에 실현하는 핵심 원리가 됩니다.
 
 ---
-## 정리
+## 4. 정리
 지금까지 아파치 카프카의 정의, 등장 및 활성화 배경, 그리고 핵심 구성 요소 별 원리에 대해 알아보았습니다.
 
 카프카는 분산 이벤트 스트리밍 플랫폼으로서, MSA 환경에서 데이터의 결합도를 낮추고 고가용성 및 확장성을 확보하는 중앙 이벤트 허브로서의 역할을 합니다.
