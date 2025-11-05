@@ -1,3 +1,5 @@
+# Apache Kafka 알아보기
+
 ## 목차
 
 - Kafka 란?
@@ -12,7 +14,7 @@
 
 https://kafka.apache.org/documentation/
 
-# Apache Kafka 정의 소개
+## Apache Kafka 정의 소개
 
 카프카는 **분산** **이벤트 스트리밍** 플랫폼입니다.
 
@@ -36,7 +38,7 @@ https://kafka.apache.org/documentation/
 > *Event streaming is the practice of capturing data in real-time from event sources like databases, sensors, mobile devices, cloud services, and software applications in the form of streams of events; storing these event streams durably for later retrieval; manipulating, processing, and reacting to the event streams in real-time as well as retrospectively; and routing the event streams to different destination technologies as needed*
 >
 
-# Kafka 등장 배경
+## Kafka 등장 배경
 
 https://www.linkedin.com/pulse/kafkas-origin-story-linkedin-tanvir-ahmed/
 
@@ -44,7 +46,7 @@ Kafka는 2010년경, LinkedIn 웹사이트와 인프라에서 발생하는 대�
 
 LinkedIn은 이런 실시간 애플리케이션용 데이터 유입을 해결할 솔루션으로 Kafka를 개발했고, 현재는 오픈소스로 제공하고 있습니다.
 
-# 왜 Kafka를 쓸까?
+## 왜 Kafka를 쓸까?
 
 https://www.confluent.io/what-is-apache-kafka/
 https://www.yes24.com/product/goods/99122569
@@ -76,7 +78,7 @@ https://martinfowler.com/articles/microservices.html
 
 이제 본격적으로 Kafka의 개념과 구성 요소를 알아볼까요?
 
-# Kafka 개념 및 구성 요소
+## Kafka 개념 및 구성 요소
 
 카프카 시스템을 이해하기 위해서는 먼저 아래의 카프카 구성 요소를 이해해야 합니다. 원할한 이해를 위해 연관된 개념을 묶어서 소개하겠습니다.
 
@@ -84,7 +86,7 @@ https://martinfowler.com/articles/microservices.html
 2. 파티션 (Partition), 오프셋 (Offset), 컨슈머 그룹(Consumer Group)
 3. 브로커(Broker), 복제 & ISR (Replication & ISR)
 
-## 1. 토픽 (Topic), 프로듀서 (Producer), 컨슈머 (Consumer)
+### 1. 토픽 (Topic), 프로듀서 (Producer), 컨슈머 (Consumer)
 
 카프카에는 다양한 이벤트(데이터)를 저장할 수 있습니다. 이때 이벤트가 저장되는 논리적 공간을 ‘**토픽**’이라고 합니다. 다음과 같이 파일 시스템에 비유할 수 있습니다.
 
@@ -106,7 +108,7 @@ Source App이 특정 토픽에 이벤트를 게시하고, Target App은 해당 �
 
 이제 토픽의 구성 요소인 파티션에 대해 알아봅시다.
 
-## 2. 파티션 (Partition), 오프셋 (Offset), 컨슈머 그룹(Consumer Group)
+### 2. 파티션 (Partition), 오프셋 (Offset), 컨슈머 그룹(Consumer Group)
 
 ![img_4.png](img_4.png)
 
@@ -172,7 +174,7 @@ Source App이 특정 토픽에 이벤트를 게시하고, Target App은 해당 �
 
 만약 작업 중인 컨슈머에 장애가 발생하면 같은 그룹의 다른 컨슈머가 해당 파티션을 재 할당 받아 처리하여 컨슈머 그룹 내 가용성을 확보합니다.
 
-## 3. 브로커(Broker), 복제 & ISR (Replication & ISR)
+### 3. 브로커(Broker), 복제 & ISR (Replication & ISR)
 
 앞서 카프카로 데이터를 보내는 클라이언트인 Producer 와 카프카에서 데이터를 가져가는 클라이언트인 Consumer 를 알아보았습니다.
 
@@ -227,12 +229,15 @@ Producer와 Consumer가 데이터를 전송/요청하는 대상이자, 카프카
 
 만약 리더 브로커에 장애가 생기면 ISR의 다른 브로커가 리더 역할을 승계하여 안정적인 서비스를 지속할 수 있습니다.
 
----
-
 이러한 복제와 ISR 구조 덕분에 Kafka는 장애 상황에서도 데이터 손실을 최소화하고 서비스 연속성을 유지할 수 있습니다.
 
 또한 파티션마다 여러 브로커에 리더와 팔로워 역할이 균형 있게 분배되면서 클러스터 전체의 부하가 자연스럽게 분산되고, 이는 Kafka가 **고가용성과 확장성**을 동시에 실현하는 핵심 원리가 됩니다.
 
-결국 이러한 설계 철학이 Kafka를 전 세계 대규모 서비스 인프라의 중심에 올려놓은 것입니다.
+---
+## 정리
+지금까지 아파치 카프카의 정의, 등장 및 활성화 배경, 그리고 핵심 구성 요소 별 원리에 대해 알아보았습니다.
 
-지금까지 카프카의 등장 및 활성화 배경과 기본 구조에 대해 알아보았습니다. 
+카프카는 분산 이벤트 스트리밍 플랫폼으로서, MSA 환경에서 데이터의 결합도를 낮추고 고가용성 및 확장성을 확보하는 중앙 이벤트 허브로서의 역할을 합니다.
+
+특히 파티션, 오프셋, 브로커, ISR로 이어지는 구조는 데이터의 손실없는 안정적인 처리를 보장하며, 이러한 강점이 비즈니스 로직의 연속성을 극대화합니다.  
+
