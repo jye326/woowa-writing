@@ -16,9 +16,7 @@ Kafka는 요새 개발자라면 모두가 한 번쯤 들어봤을 정도로 많�
 
 빅데이터 플랫폼뿐만 아니라 MSA(Microservice Architecture) 구조의 백엔드 아키텍처에서도 중요한 역할을 수행하고 있는 아파치 카프카.
 
-공식 문서를 베이스로 하여 아파치 카프카의 등장 배경과 기본 개념을 이해해봅시다.
-
-https://kafka.apache.org/documentation/
+[공식 문서](https://kafka.apache.org/documentation/)를 베이스로 하여 아파치 카프카의 등장 배경과 기본 개념을 이해해봅시다.
 
 ### Apache Kafka 정의 소개
 
@@ -46,31 +44,23 @@ https://kafka.apache.org/documentation/
 
 ## 2. Kafka 등장 배경
 
-https://www.linkedin.com/pulse/kafkas-origin-story-linkedin-tanvir-ahmed/
-
-Kafka는 2010년경, LinkedIn 웹사이트와 인프라에서 발생하는 대규모 이벤트 데이터를 **지연 없이** 수집해, Hadoop과 실시간 이벤트 처리 시스템을 함께 활용하는 람다 아키텍처로 흘려보내는 것이었습니다. 핵심은 “실시간” 처리였는데,
-
+[Kafka는 2010년경, LinkedIn에서 개발되었습니다.](https://www.linkedin.com/pulse/kafkas-origin-story-linkedin-tanvir-ahmed/) 당시 LinkedIn의 요구사항은 웹사이트와 인프라에서 발생하는 대규모 이벤트 데이터를 **지연 없이** 수집해, Hadoop과 실시간 이벤트 처리 시스템을 함께 활용하는 람다 아키텍처로 흘려보내는 것이었습니다. 핵심은 “실시간” 처리였는데,
 LinkedIn은 이런 실시간 애플리케이션용 데이터 유입을 해결할 솔루션으로 Kafka를 개발했고, 현재는 오픈소스로 제공하고 있습니다.
 
 ### 왜 Kafka를 쓸까?
 
-https://www.confluent.io/what-is-apache-kafka/
-https://www.yes24.com/product/goods/99122569
+[카프카는 현재 포춘 100대 기업 중 80% 이상이 활용](https://www.confluent.io/what-is-apache-kafka/)하고 있습니다. 국내에서도 배민, 카카오 등의 서비스 기업들이 카프카를 핵심 인프라로 사용하고 있는데요. 카프카는 어떻게 이러한 인기를 누리게 되었을까요?
 
-카프카는 현재 포춘 100대 기업 중 80% 이상이 활용하고 있습니다. 국내에서도 배민, 카카오 등의 서비스 기업들이 카프카를 핵심 인프라로 사용하고 있는데요. 카프카는 어떻게 이러한 인기를 누리게 되었을까요?
-
-### MSA가 불러온 Kafka 붐
+### [MSA가 불러온 Kafka 붐](https://www.yes24.com/product/goods/99122569)
 
 글로벌 IT 기업의 사용자 규모가 폭발적으로 늘어나자 기업들은 서비스 단위의 독립적인 CI/CD, 장애 격리, Scale Out을 위해 기존 시스템을 모놀리식(Monolithic)에서 MSA(Microservices Architechture)로 전환하기 시작했습니다.
 
 ![img.png](img.png)
 
-MSA 는 애플리케이션을 독립적으로 기능하는 더 작은 서비스 단위(Microservice)로 분해하는 것을 의미합니다. 이때 각각의 서비스들은 API를 통해 서로 통신합니다.
+[MSA 는 애플리케이션을 독립적으로 기능하는 더 작은 서비스 단위(Microservice)로 분해하는 것](https://martinfowler.com/articles/microservices.html)을 의미합니다. 이때 각각의 서비스들은 API를 통해 서로 통신합니다.
 
 > *"the microservice architectural style is an approach to developing a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API. These services are built around business capabilities and independently deployable by fully automated deployment machinery."*
 >
-
-https://martinfowler.com/articles/microservices.html
 
 ![img_1.png](img_1.png)
 
@@ -247,3 +237,10 @@ Producer와 Consumer가 데이터를 전송/요청하는 대상이자, 카프카
 
 특히 파티션, 오프셋, 브로커, ISR로 이어지는 구조는 데이터의 손실없는 안정적인 처리를 보장하며, 이러한 강점이 비즈니스 로직의 연속성을 극대화합니다.  
 
+---
+**참고 자료**
+- https://kafka.apache.org/documentation/
+- https://www.linkedin.com/pulse/kafkas-origin-story-linkedin-tanvir-ahmed/
+- https://www.confluent.io/what-is-apache-kafka/
+- https://www.yes24.com/product/goods/99122569
+- https://martinfowler.com/articles/microservices.html
