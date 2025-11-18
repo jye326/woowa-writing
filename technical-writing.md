@@ -1,15 +1,15 @@
-# 요즘 대세 Kafka, 배경부터 구조까지
+# 요즘 대세 카프카, 배경부터 구조까지
 
 ## 들어가기 전
-Kafka는 요새 개발자라면 모두가 한 번쯤 들어봤을 정도로 많은 기업에서 사용하고 있는 플랫폼입니다.
+카프카(Kafka)는 요새 개발자라면 모두가 한 번쯤 들어봤을 정도로 많은 기업에서 사용하고 있는 플랫폼입니다.
 그런데 대규모 프로젝트에 참여하는 개발자가 아니라면 실제로 카프카를 접할 경로가 없는 경우가 많습니다.   
-이 글을 통해 평소 Kafka가 궁금했던 개발자들을 대상으로 Kafka의 등장 배경부터 구성 및 원리까지 설명하고자 합니다. 
+이 글을 통해 평소 카프카가 궁금했던 개발자들을 대상으로 카프카의 등장 배경부터 구성 및 원리까지 설명하고자 합니다. 
 
 ## 목차
 
-1. Kafka란 무엇인가?
-2. Kafka 등장 배경
-3. Kafka 개념 및 구성요소
+1. 카프카란 무엇인가?
+2. 카프카 등장 배경
+3. 카프카 개념 및 구성요소
 4. 정리
 
 ## 1. 카프카(Kafka)란 무엇인가?
@@ -42,16 +42,16 @@ Kafka는 요새 개발자라면 모두가 한 번쯤 들어봤을 정도로 많�
 > *Event streaming is the practice of capturing data in real-time from event sources like databases, sensors, mobile devices, cloud services, and software applications in the form of streams of events; storing these event streams durably for later retrieval; manipulating, processing, and reacting to the event streams in real-time as well as retrospectively; and routing the event streams to different destination technologies as needed*
 >
 
-## 2. Kafka 등장 배경
+## 2. 카프카 등장 배경
 
-[Kafka는 2010년경, LinkedIn에서 개발되었습니다.](https://www.linkedin.com/pulse/kafkas-origin-story-linkedin-tanvir-ahmed/) 당시 LinkedIn의 요구사항은 웹사이트와 인프라에서 발생하는 대규모 이벤트 데이터를 **지연 없이** 수집해, Hadoop과 실시간 이벤트 처리 시스템을 함께 활용하는 람다 아키텍처로 흘려보내는 것이었습니다. 핵심은 “실시간” 처리였는데,
-LinkedIn은 이런 실시간 애플리케이션용 데이터 유입을 해결할 솔루션으로 Kafka를 개발했고, 현재는 오픈소스로 제공하고 있습니다.
+[카프카는 2010년경, LinkedIn에서 개발되었습니다.](https://www.linkedin.com/pulse/kafkas-origin-story-linkedin-tanvir-ahmed/) 당시 LinkedIn의 요구사항은 끊임없이 발생하는 대량의 데이터를 즉시(지연 없이) 처리하는 것이었어요.  
+LinkedIn은 이런 실시간 애플리케이션용 데이터 유입을 해결할 솔루션으로 카프카를 개발했고, 현재는 오픈소스로 제공하고 있습니다.
 
-### 왜 Kafka를 쓸까?
+### 왜 카프카를 쓸까?
 
 [카프카는 현재 포춘 100대 기업 중 80% 이상이 활용](https://www.confluent.io/what-is-apache-kafka/)하고 있습니다. 국내에서도 배민, 카카오 등의 서비스 기업들이 카프카를 핵심 인프라로 사용하고 있는데요. 카프카는 어떻게 이러한 인기를 누리게 되었을까요?
 
-### [MSA가 불러온 Kafka 붐](https://www.yes24.com/product/goods/99122569)
+### [MSA가 불러온 카프카 붐](https://www.yes24.com/product/goods/99122569)
 
 글로벌 IT 기업의 사용자 규모가 폭발적으로 늘어나자 기업들은 서비스 단위의 독립적인 CI/CD, 장애 격리, Scale Out을 위해 기존 시스템을 모놀리식(Monolithic)에서 MSA(Microservices Architechture)로 전환하기 시작했습니다.
 
@@ -68,13 +68,13 @@ LinkedIn은 이런 실시간 애플리케이션용 데이터 유입을 해결할
 
 또한 애플리케이션 간 장애 전파를 막고 시스템 호환성을 보장하려면 데이터 포맷과 프로토콜, 특히 데이터 스키마의 일관성이 중요해졌습니다.
 
-이러한 요구 속에서 많은 기업들이 서비스 간 결합도를 낮추고(decoupling) 안정적인 데이터 스트리밍을 보장하기 위해 **Kafka 클러스터**를 중앙 이벤트 허브로 도입하게 되었습니다.
+이러한 요구 속에서 많은 기업들이 서비스 간 결합도를 낮추고(decoupling) 안정적인 데이터 스트리밍을 보장하기 위해 **카프카**를 중앙 이벤트 허브로 도입하게 되었습니다. 
 
 ![img_2.png](img_2.png)
 
-이제 본격적으로 Kafka의 개념과 구성 요소를 알아볼까요?
+이제 본격적으로 카프카의 개념과 구성 요소를 알아볼까요?
 
-## 3. Kafka 개념 및 구성 요소
+## 3. 카프카 개념 및 구성 요소
 
 카프카 시스템을 이해하기 위해서는 먼저 아래의 카프카 구성 요소를 이해해야 합니다. 원할한 이해를 위해 연관된 개념을 묶어서 소개하겠습니다.
 
@@ -122,7 +122,8 @@ Source App이 특정 토픽에 이벤트를 게시하고, Target App은 해당 �
 
 * `auto.offset.reset = earlist` 설정이 전제 되어야 합니다.
 
-**동일 데이터의 복수 처리**는 카프카의 주요 장점 중 하나로, 예를 들어 “click_log” 토픽에서 클릭 로그의 분석을 위해 Elasticsearch에 데이터를 저장하고, 클릭 로그를 백업하기 위해 Hadoop에 저장하기도 하는 등의 활용이 가능합니다.
+**동일 데이터의 복수 처리**는 카프카의 주요 장점 중 하나로, 
+예를 들어 Elasticsearch 와 Hadoop 등 서로 다른 주체가 “click_log” 토픽의 동일 데이터를 각각 소비할 수 있습니다.
 
 ![img_5.png](img_5.png)
 
@@ -206,6 +207,9 @@ Producer와 Consumer가 데이터를 전송/요청하는 대상이자, 카프카
 
 각 팔로워는 리더의 최신 데이터를 지속적으로 따라가며 **동기화하는데,** 이 과정을 **레플리케이션 (Replication)** 이라고 부릅니다.
 
+하나의 브로커가 어떤 토픽의 리더이자 다른 토픽의 팔로워가 되면서 자연스럽게 (일을 많이 하는) 리더 역할이 클러스터 전체에 자연스럽게 분산됩니다.
+
+예를 들어 특정 브로커만 모든 토픽에 대해 리더를 맡게 된다면 해당 브로커에 부하가 집중되겠지요? 카프카 클러스터는 복제 구조로 인해 이러한 부하 집중을 막고 부하를 클러스터에 골고루 분산합니다.
 
 예를 들어 특정 토픽의 `--partitions=3`, `replication-factor=3`으로 설정하면 아래와 같은 구조를 갖습니다.
 
@@ -225,9 +229,9 @@ Producer와 Consumer가 데이터를 전송/요청하는 대상이자, 카프카
 
 만약 리더 브로커에 장애가 생기면 ISR의 다른 브로커가 리더 역할을 승계하여 안정적인 서비스를 지속할 수 있습니다.
 
-이러한 복제와 ISR 구조 덕분에 Kafka는 장애 상황에서도 데이터 손실을 최소화하고 서비스 연속성을 유지할 수 있습니다.
+이러한 복제와 ISR 구조 덕분에 카프카는 장애 상황에서도 데이터 손실을 최소화하고 서비스 연속성을 유지할 수 있습니다.
 
-또한 파티션마다 여러 브로커에 리더와 팔로워 역할이 균형 있게 분배되면서 클러스터 전체의 부하가 자연스럽게 분산되고, 이는 Kafka가 **고가용성과 확장성**을 동시에 실현하는 핵심 원리가 됩니다.
+또한 파티션마다 여러 브로커에 리더와 팔로워 역할이 균형 있게 분배되면서 클러스터 전체의 부하가 자연스럽게 분산되고, 이는 카프카가 **고가용성과 확장성**을 동시에 실현하는 핵심 원리가 됩니다.
 
 ---
 ## 4. 정리
